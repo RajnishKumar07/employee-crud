@@ -1,3 +1,10 @@
-import { Routes } from '@angular/router';
+import { Route } from '@angular/router';
 
-export const routes: Routes = [];
+export const appRoutes: Route[] = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./layout/layout.routes').then((route) => route.LAYOUT_ROUTES),
+    // canActivate: [authGuard],
+  },
+];
